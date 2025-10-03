@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay Guwalani - Senior AI Engineer & Architect</title>
+    <title>JayDS22 - Senior AI Engineer & Architect</title>
     <style>
         * {
             margin: 0;
@@ -12,15 +12,15 @@
         }
 
         :root {
-            --primary: #0ea5e9;
-            --primary-dark: #0284c7;
-            --secondary: #06b6d4;
-            --accent: #10b981;
-            --orange: #f97316;
-            --blue: #3b82f6;
+            --primary: #0284c7;
+            --primary-dark: #075985;
+            --secondary: #0891b2;
+            --accent: #059669;
+            --orange: #ea580c;
+            --blue: #2563eb;
             --dark: #0f172a;
             --dark-light: #1e293b;
-            --gray: #64748b;
+            --gray: #475569;
             --light: #f1f5f9;
             --white: #ffffff;
         }
@@ -333,7 +333,7 @@
 
         .section-subtitle {
             text-align: center;
-            color: var(--gray);
+            color: #334155;
             margin-bottom: 4rem;
             font-size: 1.2rem;
         }
@@ -362,7 +362,7 @@
         }
 
         .overview-card h3 {
-            color: var(--primary);
+            color: #075985;
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
@@ -374,12 +374,128 @@
 
         .overview-card li {
             padding: 0.5rem 0;
-            color: var(--gray);
+            color: #475569;
             border-bottom: 1px solid var(--light);
         }
 
         .overview-card li:last-child {
             border-bottom: none;
+        }
+
+        /* Publication Cards */
+        .publication-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            grid-column: span 2;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            border-color: rgba(14, 165, 233, 0.2);
+        }
+
+        .publication-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .publication-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            line-height: 1.4;
+        }
+
+        .publication-authors {
+            color: #475569;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            color: #075985;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-details {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-abstract {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .publication-abstract h4 {
+            color: #075985;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .publication-abstract p {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .publication-abstract p:last-child {
+            margin-bottom: 0;
+        }
+
+        .publication-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .keyword-tag {
+            background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+            color: #075985;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .publication-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .publication-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
         }
 
         /* Project Tabs */
@@ -544,7 +660,7 @@
         }
 
         .project-body p {
-            color: var(--gray);
+            color: #475569;
             margin-bottom: 1.5rem;
             line-height: 1.7;
         }
@@ -561,13 +677,13 @@
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
-            color: var(--primary);
+            color: #0c4a6e;
             font-weight: 600;
             transition: all 0.3s;
         }
 
         .tech-badge:hover {
-            background: linear-gradient(135deg, var(--primary), var(--blue));
+            background: linear-gradient(135deg, #0284c7, #2563eb);
             color: var(--white);
             transform: scale(1.05);
         }
@@ -592,12 +708,12 @@
         }
 
         .metric-label {
-            color: var(--gray);
+            color: #475569;
             font-weight: 500;
         }
 
         .metric-value {
-            color: var(--primary);
+            color: #0c4a6e;
             font-weight: 700;
         }
 
@@ -661,7 +777,7 @@
         }
 
         .skill-category h3 {
-            color: var(--primary);
+            color: #075985;
             margin-bottom: 1.5rem;
             font-size: 1.4rem;
             display: flex;
@@ -686,7 +802,7 @@
         }
 
         .skill-tag:hover {
-            background: linear-gradient(135deg, var(--primary), var(--blue));
+            background: linear-gradient(135deg, #0284c7, #2563eb);
             color: var(--white);
             transform: translateY(-2px);
         }
@@ -783,7 +899,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+                    @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -820,6 +936,24 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .publication-card {
+                grid-column: span 1;
+                padding: 2rem;
+            }
+
+            .publication-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .contact-link {
+                justify-content: center;
+            }
         }
 
         html {
@@ -831,7 +965,7 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
-            <div class="logo">Jay Guwalani</div>
+            <div class="logo">JayDS22</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#introduction">About</a></li>
@@ -890,6 +1024,7 @@
         <button class="main-tab-btn active" data-main-tab="introduction">Introduction</button>
         <button class="main-tab-btn" data-main-tab="overview">Overview</button>
         <button class="main-tab-btn" data-main-tab="projects">Projects</button>
+        <button class="main-tab-btn" data-main-tab="publications">Research & Publications</button>
     </div>
 
     <!-- Introduction Section -->
@@ -1123,6 +1258,82 @@
         </section>
     </div>
 
+    <!-- Publications Section -->
+    <div id="publications" class="main-content">
+        <section>
+            <div class="container">
+                <h2 class="section-title">Research & Publications</h2>
+                <p class="section-subtitle">Peer-reviewed research contributions in AI, Machine Learning, and Supply Chain Optimization</p>
+                
+                <div class="overview-grid">
+                    <div class="publication-card">
+                        <div class="publication-badge">IJAET 2023</div>
+                        <h3>Optimization of Supply Chain Processes Through Advanced Data Analytics and Machine Learning</h3>
+                        <p class="publication-authors">Jay Guwalani</p>
+                        <p class="publication-venue">International Journal of Advanced Engineering and Technology (IJAET)</p>
+                        <p class="publication-details">Vol. 5 No. 4, December 2023 | ISSN: 2633-4828</p>
+                        
+                        <div class="publication-abstract">
+                            <h4>Abstract</h4>
+                            <p>This research investigates the optimization of supply chain processes through advanced data analytics and machine learning methodologies. We focus on enhancing supply chain efficiency and resilience by employing predictive analytics to analyze large-scale datasets, identify operational bottlenecks, and forecast demand variability. A comprehensive framework is developed that integrates statistical process control, machine learning algorithms, and real-time data processing techniques.</p>
+                            
+                            <p>The study employs a hybrid approach combining descriptive and prescriptive analytics to evaluate supply chain performance metrics, including lead time, inventory turnover, and order fulfillment rates. Our findings underscore the critical importance of data integration, machine learning models, and simulation techniques in achieving supply chain agility and responsiveness.</p>
+                        </div>
+
+                        <div class="publication-keywords">
+                            <span class="keyword-tag">Supply Chain Management</span>
+                            <span class="keyword-tag">Predictive Analytics</span>
+                            <span class="keyword-tag">Inventory Management</span>
+                            <span class="keyword-tag">Artificial Intelligence</span>
+                            <span class="keyword-tag">Machine Learning</span>
+                        </div>
+
+                        <div class="publication-links">
+                            <a href="https://jayds22.github.io/Portfolio/publications/" class="publication-link" target="_blank">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                Full Paper
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="overview-card">
+                        <h3>Research Interests</h3>
+                        <ul>
+                            <li>Distributed Machine Learning Systems</li>
+                            <li>Real-time AI & Inference Optimization</li>
+                            <li>Large Language Models & Generative AI</li>
+                            <li>Supply Chain Analytics & Optimization</li>
+                            <li>Predictive Maintenance & IoT Analytics</li>
+                            <li>Computer Vision for Infrastructure</li>
+                        </ul>
+                    </div>
+
+                    <div class="overview-card">
+                        <h3>Academic Contributions</h3>
+                        <ul>
+                            <li>2 IEEE Conference Publications</li>
+                            <li>1 IJAET Journal Publication</li>
+                            <li>130+ Professionals Trained</li>
+                            <li>Technical Advisory Board Member</li>
+                            <li>ML Conference Speaker</li>
+                        </ul>
+                    </div>
+
+                    <div class="overview-card">
+                        <h3>Technical Writing</h3>
+                        <ul>
+                            <li>Medium Technical Articles</li>
+                            <li>Kaggle Data Science Notebooks</li>
+                            <li>Open Source Documentation</li>
+                            <li>ML System Design Guides</li>
+                            <li>Production AI Best Practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -1138,6 +1349,14 @@
                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                 </a>
+                <a href="https://www.kaggle.com/jayds22" class="contact-link" target="_blank">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.266-.036.353l-6.555 6.344 6.836 8.507c.095.104.117.208.07.358"/></svg>
+                    Kaggle
+                </a>
+                <a href="https://medium.com/@guwalanijj" class="contact-link" target="_blank">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                    Medium
+                </a>
                 <a href="mailto:jguwalan@umd.edu" class="contact-link">
                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     Email
@@ -1149,7 +1368,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Jay Guwalani. Senior AI Engineer & Data Scientist. All rights reserved.</p>
+            <p>&copy; 2025 JayDS22. Senior AI Engineer & Data Scientist. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1486,7 +1705,7 @@
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY> 100) {
+            if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
@@ -1497,5 +1716,4 @@
         populateProjects();
     </script>
 </body>
-
 </html>
