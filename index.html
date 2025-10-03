@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay Guwalani - Senior AI Engineer & Architect</title>
+    <title>JayDS22 - Senior AI Engineer & Architect</title>
     <style>
         * {
             margin: 0;
@@ -965,12 +965,12 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
-            <div class="logo">Jay Guwalani</div>
+            <div class="logo">JayDS22</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#introduction">About</a></li>
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link" data-nav="introduction">About</a></li>
+                <li><a href="#" class="nav-link" data-nav="overview">Overview</a></li>
+                <li><a href="#" class="nav-link" data-nav="projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1368,7 +1368,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Jay Guwalani. Senior AI Engineer & Data Scientist. All rights reserved.</p>
+            <p>&copy; 2025 JayDS22. Senior AI Engineer & Data Scientist. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1691,14 +1691,42 @@
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                // Skip empty hrefs
+                if (href === '#') {
+                    e.preventDefault();
+                    return;
+                }
+                
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Navigation link handlers for tabs
+        document.querySelectorAll('.nav-link[data-nav]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tab = link.dataset.nav;
+                
+                // Activate the corresponding main tab
+                document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                    if (btn.dataset.mainTab === tab) {
+                        btn.click();
+                        // Scroll to the main-tabs section
+                        document.querySelector('.main-tabs').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
         });
 
@@ -1717,4 +1745,3 @@
     </script>
 </body>
 </html>
-
