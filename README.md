@@ -2,7 +2,7 @@
 
 > A content-based movie recommendation system with a sleek, Netflix-inspired user interface.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.herokuapp.com)
+[[Github Page App Link]](https://jayds22.github.io/)
 
 ---
 
