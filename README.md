@@ -1,4 +1,4 @@
-# 🎬 CineMatch: A Netflix-Style Movie Recommender System
+# CineMatch: A Netflix-Style Movie Recommender System
 
 > A content-based movie recommendation system with a sleek, Netflix-inspired user interface.
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 📖 Project Overview
+## Project Overview
 
 CineMatch is a movie recommender system that uses **content-based filtering** to suggest movies based on user preferences. The system analyzes movie metadata including genres, keywords, cast, crew, and plot overviews to find similar movies.
 
@@ -20,7 +20,7 @@ CineMatch is a movie recommender system that uses **content-based filtering** to
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Component | Technology |
 |-----------|------------|
@@ -33,7 +33,7 @@ CineMatch is a movie recommender system that uses **content-based filtering** to
 
 ---
 
-## 📊 How It Works
+## How It Works
 
 ### 1. Data Preprocessing
 
@@ -81,7 +81,7 @@ def recommend(movie):
 
 ---
 
-## 🚀 Deployment Guide (Heroku)
+## Deployment Guide (Heroku)
 
 ### Prerequisites
 
@@ -119,7 +119,7 @@ heroku open
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 movie-recommender/
@@ -135,7 +135,7 @@ movie-recommender/
 
 ---
 
-## 🎯 Usage
+## Usage
 
 1. **Select a Movie**: Use the dropdown to search for a movie you've enjoyed
 2. **Get Recommendations**: Click the "Get Recommendations" button
@@ -144,7 +144,7 @@ movie-recommender/
 
 ---
 
-## 📈 Future Enhancements
+## Future Enhancements
 
 - [ ] Collaborative filtering integration
 - [ ] User authentication and watch history
@@ -154,15 +154,16 @@ movie-recommender/
 
 ---
 
-## 👨‍💻 Author
+## Author
 
-**Jay**  
+**Jay Dayal Guwalani**
+**UID: 121479709**
 MSML602 - Principles of Data Science  
 University of Maryland
 
 ---
 
-## 📚 References
+## References
 
 - [TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 - [Streamlit Documentation](https://docs.streamlit.io/)
@@ -171,6 +172,6 @@ University of Maryland
 
 ---
 
-## 📄 License
+## License
 
 This project is for educational purposes as part of MSML602 coursework.
