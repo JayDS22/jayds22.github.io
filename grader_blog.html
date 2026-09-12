@@ -4,6 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Hardest Part of Building an RL Environment Isn't the Environment - It's the Grader</title>
+<meta name="description" content="What I learned building multi-agent RL environments and a zero-dependency C++17 tracking pipeline: reward function design is the hard part, not environment architecture. Three failure modes, the deeper problem, and why it matters now.">
+<meta name="author" content="Jay Guwalani">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Hardest Part of Building an RL Environment Isn't the Environment - It's the Grader">
+<meta property="og:description" content="What I learned building multi-agent RL environments and a zero-dependency C++17 tracking pipeline: reward function design is the hard part, not environment architecture.">
+<meta property="og:url" content="https://jayds22.github.io/grader_blog.html">
+<meta property="og:image" content="https://jayds22.github.io/grader_blog_og.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Jay Guwalani">
+<meta property="article:author" content="Jay Guwalani">
+<meta property="article:published_time" content="2026-03-01">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Hardest Part of Building an RL Environment Isn't the Environment - It's the Grader">
+<meta name="twitter:description" content="What I learned building multi-agent RL environments and a zero-dependency C++17 tracking pipeline: reward function design is the hard part, not environment architecture.">
+<meta name="twitter:image" content="https://jayds22.github.io/grader_blog_og.svg">
+<meta name="twitter:creator" content="@guwalanijj">
+
+<link rel="canonical" href="https://jayds22.github.io/grader_blog.html">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
