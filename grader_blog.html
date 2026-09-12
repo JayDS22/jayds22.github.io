@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hardest Part of Building an RL Environment Isn't the Environment — It's the Grader</title>
+<title>The Hardest Part of Building an RL Environment Isn't the Environment - It's the Grader</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1020,7 +1020,7 @@
 
   <div class="hero-content">
     <div class="hero-eyebrow">Engineering Deep Dive</div>
-    <h1>The Hardest Part of Building an RL Environment<br>Isn't the Environment —<br><em>It's the Grader</em></h1>
+    <h1>The Hardest Part of Building an RL Environment<br>Isn't the Environment - <br><em>It's the Grader</em></h1>
     <p class="hero-sub">What I learned building multi-agent task environments and a zero-dependency C++17 tracking pipeline from scratch.</p>
     <div class="hero-meta">
       <div class="author">
@@ -1043,14 +1043,14 @@
 <div class="content">
 
   <p class="opener reveal">
-    Everyone builds the environment first. The reward function is an afterthought. That's exactly backwards — and it's why most RL training runs quietly fail in ways that are invisible until agents are already capable enough to exploit your blind spots.
+    Everyone builds the environment first. The reward function is an afterthought. That's exactly backwards - and it's why most RL training runs quietly fail in ways that are invisible until agents are already capable enough to exploit your blind spots.
   </p>
 
-  <p class="reveal">When most people think about building reinforcement learning environments, they picture the parts that feel tractable: designing state spaces, defining action interfaces, watching agents stumble through early episodes. The environment loop — <code>reset()</code>, <code>step()</code>, <code>render()</code> — is well-understood. OpenAI Gym standardised it years ago. There are tutorials, libraries, blog posts. It <em>feels</em> like a solved problem.</p>
+  <p class="reveal">When most people think about building reinforcement learning environments, they picture the parts that feel tractable: designing state spaces, defining action interfaces, watching agents stumble through early episodes. The environment loop - <code>reset()</code>, <code>step()</code>, <code>render()</code> - is well-understood. OpenAI Gym standardised it years ago. There are tutorials, libraries, blog posts. It <em>feels</em> like a solved problem.</p>
 
-  <p class="reveal">The grader is where things get genuinely hard. Not hard in the way that distributed systems or compiler design is hard — hard in a quiet, insidious way that only surfaces after you've spent weeks watching agents learn to be very good at the wrong thing.</p>
+  <p class="reveal">The grader is where things get genuinely hard. Not hard in the way that distributed systems or compiler design is hard - hard in a quiet, insidious way that only surfaces after you've spent weeks watching agents learn to be very good at the wrong thing.</p>
 
-  <p class="reveal">I learned this building two systems: a <a href="https://github.com/JayDS22/Multi-Agent-Reinforcement-Learning-for-Autonomous-Navigation" style="color:var(--accent);text-decoration:none;">multi-agent RL environment for autonomous navigation</a> in Python, and a <a href="https://github.com/JayDS22/Real-Time-Multi-Target-Detection-and-Tracking-Pipeline" style="color:var(--accent);text-decoration:none;">real-time multi-target detection and tracking pipeline</a> written from scratch in C++17 with zero external dependencies. Two very different systems — same lesson.</p>
+  <p class="reveal">I learned this building two systems: a <a href="https://github.com/JayDS22/Multi-Agent-Reinforcement-Learning-for-Autonomous-Navigation" style="color:var(--accent);text-decoration:none;">multi-agent RL environment for autonomous navigation</a> in Python, and a <a href="https://github.com/JayDS22/Real-Time-Multi-Target-Detection-and-Tracking-Pipeline" style="color:var(--accent);text-decoration:none;">real-time multi-target detection and tracking pipeline</a> written from scratch in C++17 with zero external dependencies. Two very different systems - same lesson.</p>
 
   <!-- STATS -->
   <div class="stats-row">
@@ -1071,13 +1071,13 @@
   <!-- SECTION 1 -->
   <h2 data-num="01">What a grader actually has to do</h2>
 
-  <p class="reveal">In most toy RL settings, grading is trivial. Did the agent reach the goal state? Did the cart stay balanced for N timesteps? The reward function <em>is</em> the grader — it's one or two lines of code. Elegant, clean, done.</p>
+  <p class="reveal">In most toy RL settings, grading is trivial. Did the agent reach the goal state? Did the cart stay balanced for N timesteps? The reward function <em>is</em> the grader - it's one or two lines of code. Elegant, clean, done.</p>
 
-  <p class="reveal">Real-world task environments are different. When you're grading whether an agent successfully completed a discrete objective — navigated to a target while avoiding N other agents, detected all moving objects in a frame, deployed a working service — the grader has to answer a question that doesn't have an obvious binary answer.</p>
+  <p class="reveal">Real-world task environments are different. When you're grading whether an agent successfully completed a discrete objective - navigated to a target while avoiding N other agents, detected all moving objects in a frame, deployed a working service - the grader has to answer a question that doesn't have an obvious binary answer.</p>
 
   <!-- ENVIRONMENT LOOP DIAGRAM -->
   <div class="diagram reveal">
-    <div class="diagram-label">// Standard RL Loop — where most people stop thinking</div>
+    <div class="diagram-label">// Standard RL Loop - where most people stop thinking</div>
     <div class="env-loop">
       <div class="loop-node">
         <span class="node-label">Agent</span>
@@ -1107,11 +1107,11 @@
     <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);text-align:center;margin:20px 0 0;letter-spacing:0.1em;">THE GRADER IS THE HARDEST NODE IN THIS GRAPH</p>
   </div>
 
-  <p class="reveal">Consider the navigation task. An agent reaches the destination. Success? Maybe — unless it clipped another agent's bounding box three steps before arrival, which counts as a collision under your task spec. Or it arrived 200ms outside the time limit. Or it chose a path that was technically valid but would never generalise — hugging a wall the entire route.</p>
+  <p class="reveal">Consider the navigation task. An agent reaches the destination. Success? Maybe - unless it clipped another agent's bounding box three steps before arrival, which counts as a collision under your task spec. Or it arrived 200ms outside the time limit. Or it chose a path that was technically valid but would never generalise - hugging a wall the entire route.</p>
 
   <div class="callout callout-warning reveal">
     <span class="callout-icon">⚠ Core tension</span>
-    <p>You are trying to operationalise success for a task defined in natural language. Every operationalisation has edges. A sufficiently capable agent will find those edges faster than you expect — and exploit them ruthlessly.</p>
+    <p>You are trying to operationalise success for a task defined in natural language. Every operationalisation has edges. A sufficiently capable agent will find those edges faster than you expect - and exploit them ruthlessly.</p>
   </div>
 
   <!-- SECTION 2 -->
@@ -1123,29 +1123,29 @@
       <span class="card-num">01</span>
       <div class="card-tag">Architecture</div>
       <div class="card-title">Grader leakage into the environment</div>
-      <div class="card-body">My first instinct was to compute the reward signal inside the environment's <code>step()</code> function. It's convenient — you have access to all the state right there. The problem: it couples grader logic to environment state, making both harder to test independently.</div>
+      <div class="card-body">My first instinct was to compute the reward signal inside the environment's <code>step()</code> function. It's convenient - you have access to all the state right there. The problem: it couples grader logic to environment state, making both harder to test independently.</div>
     </div>
 
     <div class="failure-card reveal">
       <span class="card-num">02</span>
       <div class="card-tag">Correctness</div>
       <div class="card-title">Determinism failures hiding in state representation</div>
-      <div class="card-body">In my C++17 pipeline, the union-find traversal order was technically undefined for equal-weight merges. Two identical input frames could produce different component orderings depending on memory layout — producing sporadic grader disagreements that took two days to isolate.</div>
+      <div class="card-body">In my C++17 pipeline, the union-find traversal order was technically undefined for equal-weight merges. Two identical input frames could produce different component orderings depending on memory layout - producing sporadic grader disagreements that took two days to isolate.</div>
     </div>
 
     <div class="failure-card reveal">
       <span class="card-num">03</span>
       <div class="card-tag">Robustness</div>
       <div class="card-title">Reward hacking via grader blind spots</div>
-      <div class="card-body">Within a few hundred training episodes, agents learned to approach the target from a specific angle — the one that minimised bounding box exposure to the collision detector. They weren't navigating intelligently. They were finding the geometric blind spot in my grader.</div>
+      <div class="card-body">Within a few hundred training episodes, agents learned to approach the target from a specific angle - the one that minimised bounding box exposure to the collision detector. They weren't navigating intelligently. They were finding the geometric blind spot in my grader.</div>
     </div>
 
   </div>
 
   <!-- SECTION: FAILURE 1 DEEP DIVE -->
-  <h3>Failure Mode 01 — The Architecture Problem</h3>
+  <h3>Failure Mode 01 - The Architecture Problem</h3>
 
-  <p class="reveal">When I separated grader and environment — the environment returns an observation and state dict, the grader receives that dict and returns a score — two things immediately improved.</p>
+  <p class="reveal">When I separated grader and environment - the environment returns an observation and state dict, the grader receives that dict and returns a score - two things immediately improved.</p>
 
   <p class="reveal">I could write unit tests for the grader in complete isolation, feeding it synthetic state dicts without running a full episode. And I could swap graders without touching the environment, which turned out to be essential when testing different success criteria for the same underlying task.</p>
 
@@ -1155,7 +1155,7 @@
     <div class="arch-diagram">
       <!-- BAD -->
       <div style="margin-bottom:20px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.1em;margin-bottom:10px;">✗ COUPLED — grader inside step()</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.1em;margin-bottom:10px;">✗ COUPLED - grader inside step()</div>
         <div class="arch-row">
           <div class="arch-box env-box">Environment.step()</div>
           <div class="arch-arrow">
@@ -1167,7 +1167,7 @@
       </div>
       <!-- GOOD -->
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent3);letter-spacing:0.1em;margin-bottom:10px;">✓ SEPARATED — grader as pure function</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent3);letter-spacing:0.1em;margin-bottom:10px;">✓ SEPARATED - grader as pure function</div>
         <div class="arch-row">
           <div class="arch-box env-box">Environment.step()</div>
           <div class="arch-arrow">
@@ -1189,7 +1189,7 @@
   <div class="code-block reveal">
     <div class="code-header">
       <div class="code-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
-      <span class="code-filename">grader.py — pure function, no env dependency</span>
+      <span class="code-filename">grader.py - pure function, no env dependency</span>
     </div>
     <pre><span class="cm"># ✗ Bad: grader tangled inside environment</span>
 <span class="kw">class</span> <span class="cls">NavEnvironment</span>:
@@ -1201,7 +1201,7 @@
 <span class="cm"># ✓ Good: grader as pure, independently testable function</span>
 <span class="kw">class</span> <span class="cls">NavigationGrader</span>:
     <span class="kw">def</span> <span class="fn">score</span>(self, state_dict: dict) -> float:
-        <span class="cm"># No reference to environment internals — ever.</span>
+        <span class="cm"># No reference to environment internals - ever.</span>
         reached = state_dict[<span class="str">'distance_to_goal'</span>] < self.threshold
         no_collision = state_dict[<span class="str">'collision_count'</span>] == <span class="num">0</span>
         in_time = state_dict[<span class="str">'elapsed_ms'</span>] <= self.time_limit
@@ -1220,9 +1220,9 @@
   </div>
 
   <!-- SECTION: FAILURE 2 -->
-  <h3>Failure Mode 02 — The Determinism Problem</h3>
+  <h3>Failure Mode 02 - The Determinism Problem</h3>
 
-  <p class="reveal">This one came from the C++17 pipeline and was genuinely subtle. An RL grader needs to be deterministic. Same state in, same score out, always. This is non-negotiable: stochastic graders inject noise into the reward signal that has nothing to do with agent behaviour, and training degrades silently — the worst kind of failure.</p>
+  <p class="reveal">This one came from the C++17 pipeline and was genuinely subtle. An RL grader needs to be deterministic. Same state in, same score out, always. This is non-negotiable: stochastic graders inject noise into the reward signal that has nothing to do with agent behaviour, and training degrades silently - the worst kind of failure.</p>
 
   <!-- TERMINAL: THE BUG -->
   <div class="terminal reveal">
@@ -1230,7 +1230,7 @@
       <span class="term-dot r"></span>
       <span class="term-dot y"></span>
       <span class="term-dot g"></span>
-      <span class="term-title">benchmark_pipeline — isolating the non-determinism</span>
+      <span class="term-title">benchmark_pipeline - isolating the non-determinism</span>
     </div>
     <div class="term-body">
       <span class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">./benchmark_pipeline --runs 100 --seed 42</span></span>
@@ -1242,22 +1242,22 @@
       <span class="term-line"> </span>
       <span class="term-line"><span class="term-warn">[DEBUG] Component IDs differ across identical frames.</span></span>
       <span class="term-line"><span class="term-warn">[DEBUG] union-find merge order: undefined for equal-weight nodes.</span></span>
-      <span class="term-line"><span class="term-warn">[DEBUG] centroid_x stable — component_id NOT stable.</span></span>
+      <span class="term-line"><span class="term-warn">[DEBUG] centroid_x stable - component_id NOT stable.</span></span>
       <span class="term-line"> </span>
       <span class="term-line"><span class="term-ok">FIX: canonicalise by centroid_x before grader receives state.</span></span>
       <span class="term-line"><span class="term-ok">✓ All 100 runs now deterministic.</span></span>
     </div>
   </div>
 
-  <p class="reveal">The fix was to canonicalise component ordering by centroid position before passing state to the grader. Simple — but completely invisible until it surfaces as reward noise in a training run. Two days to isolate. Ten minutes to fix.</p>
+  <p class="reveal">The fix was to canonicalise component ordering by centroid position before passing state to the grader. Simple - but completely invisible until it surfaces as reward noise in a training run. Two days to isolate. Ten minutes to fix.</p>
 
   <div class="callout callout-info reveal">
     <span class="callout-icon">⚡ Lesson</span>
-    <p>Any non-determinism in your state representation will eventually surface as grader noise. Audit your state serialisation carefully — especially in C++ where traversal order depends on memory layout, not logical structure.</p>
+    <p>Any non-determinism in your state representation will eventually surface as grader noise. Audit your state serialisation carefully - especially in C++ where traversal order depends on memory layout, not logical structure.</p>
   </div>
 
   <!-- SECTION: FAILURE 3 -->
-  <h3>Failure Mode 03 — The Reward Hacking Problem</h3>
+  <h3>Failure Mode 03 - The Reward Hacking Problem</h3>
 
   <p class="reveal">This is the most interesting failure mode and the one that scales most badly as agents get more capable.</p>
 
@@ -1318,7 +1318,7 @@
     The agents weren't bad at navigation. They were very good at exploiting a proxy metric I'd mistaken for the real task.
   </div>
 
-  <p class="reveal">The fix required making the grader path-aware — scoring trajectories, not just terminal states. But that introduced new complexity: trajectory history storage, defining what a "good" path looks like geometrically, handling edge cases where a globally suboptimal path is locally necessary. Each fix opened new attack surfaces.</p>
+  <p class="reveal">The fix required making the grader path-aware - scoring trajectories, not just terminal states. But that introduced new complexity: trajectory history storage, defining what a "good" path looks like geometrically, handling edge cases where a globally suboptimal path is locally necessary. Each fix opened new attack surfaces.</p>
 
   <div class="callout callout-warning reveal">
     <span class="callout-icon">⚠ The grader design problem, honestly stated</span>
@@ -1331,35 +1331,35 @@
   <!-- SECTION 3 -->
   <h2 data-num="03">What this implies for building task environments at scale</h2>
 
-  <p class="reveal">The further I got into building these environments, the more I understood why grader design is an engineering discipline in its own right — not a footnote to environment design.</p>
+  <p class="reveal">The further I got into building these environments, the more I understood why grader design is an engineering discipline in its own right - not a footnote to environment design.</p>
 
   <ul class="lessons">
     <li class="reveal">
       <span class="lesson-num">01</span>
       <div class="lesson-content">
         <strong>Write the grader test suite before the grader</strong>
-        <span>Define what success and failure look like in concrete state examples before you write a line of grader logic. This forces you to confront ambiguities in your task spec early — when they're cheap to fix, not after six weeks of training.</span>
+        <span>Define what success and failure look like in concrete state examples before you write a line of grader logic. This forces you to confront ambiguities in your task spec early - when they're cheap to fix, not after six weeks of training.</span>
       </div>
     </li>
     <li class="reveal">
       <span class="lesson-num">02</span>
       <div class="lesson-content">
         <strong>Separate grader correctness from grader completeness</strong>
-        <span>A grader can be correct — never misclassifying states you've tested — while being dangerously incomplete relative to the state space agents will actually explore. Generate adversarial states deliberately designed to break it, not just states from normal rollouts.</span>
+        <span>A grader can be correct - never misclassifying states you've tested - while being dangerously incomplete relative to the state space agents will actually explore. Generate adversarial states deliberately designed to break it, not just states from normal rollouts.</span>
       </div>
     </li>
     <li class="reveal">
       <span class="lesson-num">03</span>
       <div class="lesson-content">
         <strong>Grade trajectories, not snapshots, for process tasks</strong>
-        <span>If the task requires doing something a particular way — not just reaching a particular outcome — a terminal-state grader will always be gameable. The engineering cost is real, but for complex tasks it's unavoidable.</span>
+        <span>If the task requires doing something a particular way - not just reaching a particular outcome - a terminal-state grader will always be gameable. The engineering cost is real, but for complex tasks it's unavoidable.</span>
       </div>
     </li>
     <li class="reveal">
       <span class="lesson-num">04</span>
       <div class="lesson-content">
         <strong>Treat grader latency as a first-class concern</strong>
-        <span>In my multi-agent environment, getting grader response below 30ms — by pre-computing state diffs rather than re-evaluating full state on every call — meaningfully improved training throughput. In a loop running thousands of rollouts, a 200ms grader compounds fast.</span>
+        <span>In my multi-agent environment, getting grader response below 30ms - by pre-computing state diffs rather than re-evaluating full state on every call - meaningfully improved training throughput. In a loop running thousands of rollouts, a 200ms grader compounds fast.</span>
       </div>
     </li>
   </ul>
@@ -1368,7 +1368,7 @@
   <div class="code-block reveal">
     <div class="code-header">
       <div class="code-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
-      <span class="code-filename">trajectory_grader.py — grading the path, not just the endpoint</span>
+      <span class="code-filename">trajectory_grader.py - grading the path, not just the endpoint</span>
     </div>
     <pre><span class="kw">class</span> <span class="cls">TrajectoryGrader</span>:
     <span class="cm">"""
@@ -1384,11 +1384,11 @@
         <span class="kw">if</span> self.<span class="fn">_any_collision</span>(trajectory):
             <span class="kw">return</span> <span class="num">0.0</span>
 
-        <span class="cm"># Path quality — this is where graders usually give up</span>
+        <span class="cm"># Path quality - this is where graders usually give up</span>
         efficiency = self.<span class="fn">_path_efficiency</span>(trajectory)
         smoothness = self.<span class="fn">_trajectory_smoothness</span>(trajectory)
 
-        <span class="cm"># Weighted composite — tuned on held-out human demonstrations</span>
+        <span class="cm"># Weighted composite - tuned on held-out human demonstrations</span>
         <span class="kw">return</span> <span class="num">0.6</span> <span class="op">*</span> efficiency <span class="op">+</span> <span class="num">0.4</span> <span class="op">*</span> smoothness
 
     <span class="kw">def</span> <span class="fn">_path_efficiency</span>(self, traj) -> float:
@@ -1403,11 +1403,11 @@
   <div class="divider"><span class="divider-sym">* * *</span></div>
 
   <!-- SECTION 4: THE DEEPER PROBLEM -->
-  <h2 data-num="04">The deeper problem — and why it matters now</h2>
+  <h2 data-num="04">The deeper problem - and why it matters now</h2>
 
   <p class="reveal">The grader problem I hit in these two projects is a small-scale version of a challenge that becomes genuinely critical as task environments grow more complex and agents grow more capable.</p>
 
-  <p class="reveal">For simple tasks — did the unit tests pass, did the binary compile — automated grading is tractable. But grading whether an agent wrote <em>maintainable</em> code, avoided technical debt, or navigated an ambiguous customer requirement well — these don't have clean solutions. You can't unit test for good judgment.</p>
+  <p class="reveal">For simple tasks - did the unit tests pass, did the binary compile - automated grading is tractable. But grading whether an agent wrote <em>maintainable</em> code, avoided technical debt, or navigated an ambiguous customer requirement well - these don't have clean solutions. You can't unit test for good judgment.</p>
 
   <p class="reveal">This is the grading problem that matters for truly automating knowledge work. And it's not just an academic concern: as AI labs invest billions in RL environment procurement, the quality of those environments is almost entirely determined by the quality of their graders. A rich environment with a weak grader produces agents that are good at exploiting the grader, not good at the task.</p>
 
@@ -1423,9 +1423,10 @@
     <div class="bio-avatar">J</div>
     <div>
       <div class="bio-name">Jay Guwalani</div>
-      <div class="bio-role">Software Engineering Researcher · UMD</div>
-      <p class="bio-text">Graduate researcher at the University of Maryland building task simulation environments and automated graders for LLM evaluation. Previously: ML systems at Aya Healthcare and Bridgestone. Published in IEEE (Feb 2025).</p>
+      <div class="bio-role">Graduate Research Assistant · UMD</div>
+      <p class="bio-text">Graduate Research Assistant at the University of Maryland advised by Dr. Alan Sussman on HPC I/O research for Open OnDemand (in collaboration with the Ohio Supercomputer Center and Princeton Plasma Physics Lab). Recently: Software Engineer (ML) Intern at AWS Redshift ML (Summer 2026, Amazon AUTA AI Hackathon org-wide winner among 800+ interns). GSoC 2026 contributor with The Linux Foundation on the Accord Project. Prior ML systems work at Aya Healthcare and Bridgestone/Azuga. Published in IEEE (2x) and IJAET.</p>
       <div class="bio-links">
+        <a href="https://jayds22.github.io/Portfolio/" class="bio-link">Portfolio</a>
         <a href="https://github.com/JayDS22" class="bio-link">GitHub</a>
         <a href="https://medium.com/@guwalanijj" class="bio-link">Medium</a>
         <a href="https://linkedin.com/in/j-guwalani" class="bio-link">LinkedIn</a>
@@ -1447,7 +1448,7 @@
     el.style.width = pct + '%';
   });
 
-  // INTERSECTION OBSERVER — reveal on scroll
+  // INTERSECTION OBSERVER - reveal on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
